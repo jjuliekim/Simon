@@ -21,6 +21,11 @@ public class SimonController {
     @FXML
     public void initialize() {
         newGameButton.setOnAction(e -> handleNewGame());
+        buttonStyles();
+        run();
+    }
+
+    private void buttonStyles() {
         button1.setStyle("-fx-background-color: #56c032");
         button2.setStyle("-fx-background-color: #d72b2b");
         button3.setStyle("-fx-background-color: #d7cb35");
@@ -33,7 +38,6 @@ public class SimonController {
         button3.setOnMouseExited(e -> button3.setStyle("-fx-background-color: #d7cb35"));
         button4.setOnMouseEntered(e -> button4.setStyle("-fx-background-color: #5aa9e1"));
         button4.setOnMouseExited(e -> button4.setStyle("-fx-background-color: #3297da"));
-        run();
     }
 
     private void run() {
