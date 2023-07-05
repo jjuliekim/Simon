@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Scene xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.julie.simon.SimonController">
+    <AnchorPane prefHeight="200" prefWidth="200">
+      <children>
+         <VBox fx:id="mainVbox" alignment="TOP_CENTER" prefHeight="800.0" prefWidth="800.0" spacing="20.0">
+            <children>
+               <Label text="Simon Says">
+                  <font>
+                     <Font name="Jokerman" size="53.0" />
+                  </font>
+               </Label>
+               <HBox alignment="BOTTOM_CENTER" prefHeight="50.0" prefWidth="200.0" spacing="5.0">
+                  <children>
+                     <Button fx:id="newGameButton" mnemonicParsing="false" text="New Game">
+                        <HBox.margin>
+                           <Insets right="50.0" />
+                        </HBox.margin>
+                        <font>
+                           <Font name="System Bold" size="20.0" />
+                        </font>
+                     </Button>
+                     <Label text="Score:">
+                        <font>
+                           <Font name="System Bold" size="30.0" />
+                        </font>
+                     </Label>
+                     <Label fx:id="scoreLabel">
+                        <font>
+                           <Font name="System Bold" size="30.0" />
+                        </font>
+                     </Label>
+                  </children>
+               </HBox>
+               <VBox fx:id="buttonsVBox" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="600.0" prefWidth="600.0">
+                  <children>
+                     <HBox alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="300.0" prefWidth="400.0" spacing="5.0" VBox.vgrow="ALWAYS">
+                        <children>
+                           <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="300.0" prefWidth="300.0" HBox.hgrow="ALWAYS">
+                              <children>
+                                 <Button fx:id="button1" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" VBox.vgrow="ALWAYS" />
+                              </children>
+                           </VBox>
+                           <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="300.0" prefWidth="300.0" HBox.hgrow="ALWAYS">
+                              <children>
+                                 <Button fx:id="button2" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" VBox.vgrow="ALWAYS" />
+                              </children>
+                           </VBox>
+                        </children>
+                        <VBox.margin>
+                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                        </VBox.margin>
+                     </HBox>
+                     <HBox alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="300.0" prefWidth="400.0" spacing="5.0" VBox.vgrow="ALWAYS">
+                        <children>
+                           <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="300.0" prefWidth="300.0" HBox.hgrow="ALWAYS">
+                              <children>
+                                 <Button fx:id="button3" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" VBox.vgrow="ALWAYS" />
+                              </children>
+                           </VBox>
+                           <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="300.0" prefWidth="300.0" HBox.hgrow="ALWAYS">
+                              <children>
+                                 <Button fx:id="button4" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" VBox.vgrow="ALWAYS" />
+                              </children>
+                           </VBox>
+                        </children>
+                        <VBox.margin>
+                           <Insets bottom="5.0" left="5.0" right="5.0" />
+                        </VBox.margin>
+                     </HBox>
+                  </children>
+                  <VBox.margin>
+                     <Insets left="100.0" right="100.0" />
+                  </VBox.margin>
+               </VBox>
+            </children>
+         </VBox>
+      </children></AnchorPane>
+</Scene>
