@@ -31,6 +31,14 @@ public class SimonController {
     private ArrayList<Integer> sequence;
     private ArrayList<Integer> guess;
     private Random random;
+    private String lightRed = "-fx-background-color: #fa5858";
+    private String lightGreen = "-fx-background-color: #78f34d";
+    private String lightYellow = "-fx-background-color: #fff05e";
+    private String lightBlue = "-fx-background-color: #5db6f6";
+    private String darkRed = "-fx-background-color: #9d1818";
+    private String darkGreen = "-fx-background-color: #399919";
+    private String darkYellow = "-fx-background-color: #a59b16";
+    private String darkBlue = "-fx-background-color: #1a6597";
 
     @FXML
     public void initialize() {
@@ -73,25 +81,17 @@ public class SimonController {
     }
 
     private void buttonStyles() {
-        buttonsVBox.setStyle("-fx-background-color: #000000");
-        button1.setStyle("-fx-background-color: #56c032");
-        button2.setStyle("-fx-background-color: #d72b2b");
-        button3.setStyle("-fx-background-color: #d7cb35");
-        button4.setStyle("-fx-background-color: #3297da");
+        buttonsVBox.setStyle("-fx-background-color: black");
+        button1.setStyle(darkGreen);
+        button2.setStyle(darkRed);
+        button3.setStyle(darkYellow);
+        button4.setStyle(darkBlue);
     }
 
     private void run() {
         int i = random.nextInt(4) + 1;
         sequence.add(i);
         displayAnswer();
-
-        if (guess.size() == sequence.size() && !(guess.equals(sequence))) {
-            endGame();
-        } else if (guess.size() == sequence.size() && guess.equals(sequence)) {
-            score++;
-            scoreLabel.setText(Integer.toString(score));
-            run();
-        }
     }
 
     private void endGame() {
@@ -103,17 +103,17 @@ public class SimonController {
             for (int j : sequence) {
                 Main.delay(500, () -> {
                     switch (j) {
-                        case 1 -> button1.setStyle("-fx-background-color: #6dea42");
-                        case 2 -> button2.setStyle("-fx-background-color: #e35252");
-                        case 3 -> button3.setStyle("-fx-background-color: #eadd63");
-                        case 4 -> button4.setStyle("-fx-background-color: #5aa9e1");
+                        case 1 -> button1.setStyle(lightGreen);
+                        case 2 -> button2.setStyle(lightRed);
+                        case 3 -> button3.setStyle(lightYellow);
+                        case 4 -> button4.setStyle(lightBlue);
                     }
 
                     Main.delay(500, () -> {
-                        button1.setStyle("-fx-background-color: #56c032");
-                        button2.setStyle("-fx-background-color: #d72b2b");
-                        button3.setStyle("-fx-background-color: #d7cb35");
-                        button4.setStyle("-fx-background-color: #3297da");
+                        button1.setStyle(darkGreen);
+                        button2.setStyle(darkRed);
+                        button3.setStyle(darkYellow);
+                        button4.setStyle(darkBlue);
                     });
                 });
             }
@@ -131,37 +131,65 @@ public class SimonController {
 
     private void handleButton1() throws InterruptedException {
         System.out.println("Button 1 pressed");
-        button1.setStyle("-fx-background-color: #78f34d");
+        button1.setStyle(lightGreen);
         Main.delay(500, () -> {
-            button1.setStyle("-fx-background-color: #56c032");
+            button1.setStyle(darkGreen);
             guess.add(1);
         });
+        if (guess.size() == sequence.size() && !(guess.equals(sequence))) {
+            endGame();
+        } else if (guess.size() == sequence.size() && guess.equals(sequence)) {
+            score++;
+            scoreLabel.setText(Integer.toString(score));
+            run();
+        }
     }
 
     private void handleButton2() throws InterruptedException {
         System.out.println("Button 2 pressed");
-        button2.setStyle("-fx-background-color: #fa5858");
+        button2.setStyle(lightRed);
         Main.delay(500, () -> {
-            button2.setStyle("-fx-background-color: #d72b2b");
+            button2.setStyle(darkRed);
             guess.add(2);
         });
+        if (guess.size() == sequence.size() && !(guess.equals(sequence))) {
+            endGame();
+        } else if (guess.size() == sequence.size() && guess.equals(sequence)) {
+            score++;
+            scoreLabel.setText(Integer.toString(score));
+            run();
+        }
     }
 
     private void handleButton3() throws InterruptedException {
         System.out.println("Button 3 pressed");
-        button3.setStyle("-fx-background-color: #fff05e");
+        button3.setStyle(lightYellow);
         Main.delay(500, () -> {
-            button3.setStyle("-fx-background-color: #d7cb35");
+            button3.setStyle(darkYellow);
             guess.add(3);
         });
+        if (guess.size() == sequence.size() && !(guess.equals(sequence))) {
+            endGame();
+        } else if (guess.size() == sequence.size() && guess.equals(sequence)) {
+            score++;
+            scoreLabel.setText(Integer.toString(score));
+            run();
+        }
     }
 
     private void handleButton4() throws InterruptedException {
         System.out.println("Button 4 pressed");
-        button4.setStyle("-fx-background-color: #5db6f6");
+        button4.setStyle(lightBlue);
         Main.delay(500, () -> {
-            button4.setStyle("-fx-background-color: #3297da");
+            button4.setStyle(darkBlue);
             guess.add(4);
         });
+        if (guess.size() == sequence.size() && !(guess.equals(sequence))) {
+            endGame();
+        } else if (guess.size() == sequence.size() && guess.equals(sequence)) {
+            score++;
+            scoreLabel.setText(Integer.toString(score));
+            run();
+        }
     }
 }
