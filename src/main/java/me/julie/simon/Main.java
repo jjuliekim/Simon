@@ -12,14 +12,10 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("simon.fxml"));
-        System.out.println("loading");
         Scene scene = fxmlLoader.load();
-        System.out.println("loaded");
         stage.setTitle("Simon Says");
         stage.setScene(scene);
-        System.out.println("showing");
         stage.show();
-        System.out.println("show");
     }
 
     public static void main(String[] args) {

@@ -6,13 +6,12 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Random;
 
 public class SimonController {
     @FXML
     private Label scoreLabel;
-    @FXML
-    private Button newGameButton;
     @FXML
     private Button button1;
     @FXML
@@ -47,8 +46,8 @@ public class SimonController {
         sequence = new ArrayList<>();
         guess = new ArrayList<>();
         random = new Random();
-        newGameButton.setOnAction(e -> handleNewGame());
-        startButton.setOnAction(e -> run());
+        buttonStyles();
+        startButton.setOnAction(e -> handleNewGame());
         button1.setOnAction(e -> {
             try {
                 handleButton1();
@@ -77,7 +76,6 @@ public class SimonController {
                 throw new RuntimeException(ex);
             }
         });
-        buttonStyles();
     }
 
     private void buttonStyles() {
@@ -89,20 +87,22 @@ public class SimonController {
     }
 
     private void run() {
+        guess.clear();
         int i = random.nextInt(4) + 1;
         sequence.add(i);
         displayAnswer();
     }
 
     private void endGame() {
-        gameOverLabel.setText("Game Over");
+        gameOverLabel.setText("Game Over!");
     }
 
     private void displayAnswer() {
         Main.delay(500, () -> {
-            for (int j : sequence) {
-                Main.delay(500, () -> {
-                    switch (j) {
+            int delay = 500;
+            for (int i : sequence) {
+                Main.delay(delay, () -> {
+                    switch (i) {
                         case 1 -> button1.setStyle(lightGreen);
                         case 2 -> button2.setStyle(lightRed);
                         case 3 -> button3.setStyle(lightYellow);
@@ -110,83 +110,72 @@ public class SimonController {
                     }
 
                     Main.delay(500, () -> {
-                        button1.setStyle(darkGreen);
-                        button2.setStyle(darkRed);
-                        button3.setStyle(darkYellow);
-                        button4.setStyle(darkBlue);
+                        switch (i) {
+                            case 1 -> button1.setStyle(darkGreen);
+                            case 2 -> button2.setStyle(darkRed);
+                            case 3 -> button3.setStyle(darkYellow);
+                            case 4 -> button4.setStyle(darkBlue);
+                        }
                     });
                 });
+                delay += 1000;
             }
         });
-        System.out.println(sequence);
     }
 
     private void handleNewGame() {
         scoreLabel.setText("0");
         score = 0;
+        gameOverLabel.setText("");
         sequence = new ArrayList<>();
         guess = new ArrayList<>();
         run();
     }
 
     private void handleButton1() throws InterruptedException {
-        System.out.println("Button 1 pressed");
         button1.setStyle(lightGreen);
         Main.delay(500, () -> {
             button1.setStyle(darkGreen);
             guess.add(1);
+            checkAnswer();
         });
-        if (guess.size() == sequence.size() && !(guess.equals(sequence))) {
-            endGame();
-        } else if (guess.size() == sequence.size() && guess.equals(sequence)) {
-            score++;
-            scoreLabel.setText(Integer.toString(score));
-            run();
-        }
     }
 
     private void handleButton2() throws InterruptedException {
-        System.out.println("Button 2 pressed");
         button2.setStyle(lightRed);
         Main.delay(500, () -> {
             button2.setStyle(darkRed);
             guess.add(2);
+            checkAnswer();
         });
-        if (guess.size() == sequence.size() && !(guess.equals(sequence))) {
-            endGame();
-        } else if (guess.size() == sequence.size() && guess.equals(sequence)) {
-            score++;
-            scoreLabel.setText(Integer.toString(score));
-            run();
-        }
     }
 
     private void handleButton3() throws InterruptedException {
-        System.out.println("Button 3 pressed");
         button3.setStyle(lightYellow);
         Main.delay(500, () -> {
             button3.setStyle(darkYellow);
             guess.add(3);
+            checkAnswer();
         });
-        if (guess.size() == sequence.size() && !(guess.equals(sequence))) {
-            endGame();
-        } else if (guess.size() == sequence.size() && guess.equals(sequence)) {
-            score++;
-            scoreLabel.setText(Integer.toString(score));
-            run();
-        }
     }
 
     private void handleButton4() throws InterruptedException {
-        System.out.println("Button 4 pressed");
         button4.setStyle(lightBlue);
         Main.delay(500, () -> {
             button4.setStyle(darkBlue);
             guess.add(4);
+            checkAnswer();
         });
-        if (guess.size() == sequence.size() && !(guess.equals(sequence))) {
-            endGame();
-        } else if (guess.size() == sequence.size() && guess.equals(sequence)) {
+    }
+
+    private void checkAnswer() {
+        for (int i = 0; i < guess.size(); i++) {
+            if (!Objects.equals(guess.get(i), sequence.get(i))) {
+                endGame();
+            }
+        }
+
+        if (guess.equals(sequence)) {
             score++;
             scoreLabel.setText(Integer.toString(score));
             run();
