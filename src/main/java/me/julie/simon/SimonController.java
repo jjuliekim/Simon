@@ -31,14 +31,14 @@ public class SimonController {
     private ArrayList<Integer> sequence;
     private ArrayList<Integer> guess;
     private Random random;
-    private String lightRed = "-fx-background-color: #fa5858";
-    private String lightGreen = "-fx-background-color: #78f34d";
-    private String lightYellow = "-fx-background-color: #fff05e";
-    private String lightBlue = "-fx-background-color: #5db6f6";
-    private String darkRed = "-fx-background-color: #9d1818";
-    private String darkGreen = "-fx-background-color: #399919";
-    private String darkYellow = "-fx-background-color: #a59b16";
-    private String darkBlue = "-fx-background-color: #1a6597";
+    private final String lightRed = "-fx-background-color: #fa5858";
+    private final String lightGreen = "-fx-background-color: #78f34d";
+    private final String lightYellow = "-fx-background-color: #fff05e";
+    private final String lightBlue = "-fx-background-color: #5db6f6";
+    private final String darkRed = "-fx-background-color: #9d1818";
+    private final String darkGreen = "-fx-background-color: #399919";
+    private final String darkYellow = "-fx-background-color: #a59b16";
+    private final String darkBlue = "-fx-background-color: #1a6597";
 
     @FXML
     public void initialize() {
