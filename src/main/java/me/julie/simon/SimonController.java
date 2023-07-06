@@ -26,6 +26,8 @@ public class SimonController {
     private Button startButton;
     @FXML
     private Label gameOverLabel;
+    @FXML
+    private VBox mainVbox;
     private int score;
     private ArrayList<Integer> sequence;
     private ArrayList<Integer> guess;
@@ -41,6 +43,11 @@ public class SimonController {
 
     @FXML
     public void initialize() {
+        button1.setDisable(true);
+        button2.setDisable(true);
+        button3.setDisable(true);
+        button4.setDisable(true);
+        mainVbox.setStyle("-fx-background-color: #dccbf8");
         scoreLabel.setText("0");
         score = 0;
         sequence = new ArrayList<>();
@@ -80,6 +87,7 @@ public class SimonController {
 
     private void buttonStyles() {
         buttonsVBox.setStyle("-fx-background-color: black");
+        startButton.setStyle("-fx-focus-color: #f675f4");
         button1.setStyle(darkGreen);
         button2.setStyle(darkRed);
         button3.setStyle(darkYellow);
@@ -87,6 +95,10 @@ public class SimonController {
     }
 
     private void run() {
+        button1.setDisable(false);
+        button2.setDisable(false);
+        button3.setDisable(false);
+        button4.setDisable(false);
         guess.clear();
         int i = random.nextInt(4) + 1;
         sequence.add(i);
