@@ -16,38 +16,60 @@
                      <Font name="Jokerman" size="53.0" />
                   </font>
                </Label>
-               <HBox alignment="BOTTOM_CENTER" prefHeight="50.0" prefWidth="200.0" spacing="5.0">
+               <GridPane alignment="TOP_CENTER">
+                 <columnConstraints>
+                     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                 </columnConstraints>
+                 <rowConstraints>
+                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                 </rowConstraints>
                   <children>
-                     <Button fx:id="newGameButton" mnemonicParsing="false" text="New Game">
-                        <HBox.margin>
-                           <Insets right="50.0" />
-                        </HBox.margin>
-                        <font>
-                           <Font name="System Bold" size="20.0" />
-                        </font>
-                     </Button>
-                     <Label text="Score:">
-                        <font>
-                           <Font name="System Bold" size="30.0" />
-                        </font>
-                     </Label>
-                     <Label fx:id="scoreLabel">
-                        <font>
-                           <Font name="System Bold" size="30.0" />
-                        </font>
-                     </Label>
+                     <VBox alignment="CENTER_RIGHT" prefHeight="200.0" prefWidth="100.0">
+                        <children>
+                           <Button fx:id="newGameButton" mnemonicParsing="false" text="New Game">
+                              <font>
+                                 <Font name="System Bold" size="20.0" />
+                              </font>
+                           </Button>
+                        </children>
+                     </VBox>
+                     <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
+                        <children>
+                           <Button fx:id="startButton" alignment="CENTER" mnemonicParsing="false" text="Start">
+                              <font>
+                                 <Font name="System Bold" size="20.0" />
+                              </font>
+                           </Button>
+                        </children>
+                     </VBox>
+                     <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0" spacing="5.0" GridPane.columnIndex="2">
+                        <children>
+                           <Label text="Score:">
+                              <font>
+                                 <Font name="System Bold" size="20.0" />
+                              </font>
+                           </Label>
+                           <Label fx:id="scoreLabel">
+                              <font>
+                                 <Font name="System Bold" size="20.0" />
+                              </font>
+                           </Label>
+                        </children>
+                     </HBox>
                   </children>
-               </HBox>
+               </GridPane>
                <VBox fx:id="buttonsVBox" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="600.0" prefWidth="600.0">
                   <children>
                      <HBox alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="300.0" prefWidth="400.0" spacing="5.0" VBox.vgrow="ALWAYS">
                         <children>
-                           <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="300.0" prefWidth="300.0" HBox.hgrow="ALWAYS">
+                           <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="300.0" prefWidth="300.0">
                               <children>
                                  <Button fx:id="button1" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" VBox.vgrow="ALWAYS" />
                               </children>
                            </VBox>
-                           <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="300.0" prefWidth="300.0" HBox.hgrow="ALWAYS">
+                           <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="300.0" prefWidth="300.0">
                               <children>
                                  <Button fx:id="button2" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" VBox.vgrow="ALWAYS" />
                               </children>
@@ -57,7 +79,7 @@
                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                         </VBox.margin>
                      </HBox>
-                     <HBox alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="300.0" prefWidth="400.0" spacing="5.0" VBox.vgrow="ALWAYS">
+                     <HBox alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="300.0" prefWidth="400.0" spacing="5.0">
                         <children>
                            <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="300.0" prefWidth="300.0" HBox.hgrow="ALWAYS">
                               <children>
@@ -79,6 +101,11 @@
                      <Insets left="100.0" right="100.0" />
                   </VBox.margin>
                </VBox>
+               <Label fx:id="gameOverLabel">
+                  <font>
+                     <Font name="System Bold" size="20.0" />
+                  </font>
+               </Label>
             </children>
          </VBox>
       </children></AnchorPane>
